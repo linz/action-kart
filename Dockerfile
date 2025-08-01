@@ -1,5 +1,11 @@
 FROM ghcr.io/osgeo/gdal:ubuntu-full-3.11.3@sha256:984938ae4ffda015d5e806a8048eb29fc4eeddaf97ada04e627f7f27b51feddb
 
+ARG GIT_VERSION
+ENV GIT_VERSION=${GIT_VERSION}
+
+ARG GIT_HASH=unknown
+ENV GIT_HASH=${GIT_HASH}
+
 ARG KART_VERSION=0.16.1
 
 RUN wget https://github.com/koordinates/kart/releases/download/v${KART_VERSION}/Kart-${KART_VERSION}-linux-x86_64.tar.gz  && \
