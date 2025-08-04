@@ -9,6 +9,7 @@ ARG GIT_HASH=unknown
 ENV GIT_HASH=${GIT_HASH}
 
 ARG KART_VERSION=0.16.1
+ARG UV_VERSION=0.8.4
 
 RUN apt-get update && apt-get install git -y
 
@@ -22,6 +23,6 @@ ENV PATH="/opt/kart:${PATH}"
 RUN kart --version
 RUN gdal --version
 
-COPY --from=ghcr.io/astral-sh/uv:0.8.4 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:${UV_VERSION} /uv /uvx /bin/
 
 RUN uv --version
