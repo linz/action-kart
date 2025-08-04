@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/linz/action-kart/compare/v0.1.0...v0.1.1) (2025-08-04)
+
+
+### Bug Fixes
+
+* include git ([c740f65](https://github.com/linz/action-kart/commit/c740f655b765cdc81bd0397570dc3f4eeb7e32e3))
+
 ## [0.1.0](https://github.com/linz/action-kart/compare/v0.0.1...v0.1.0) (2025-08-01)
 
 
