@@ -1,5 +1,3 @@
-FROM python:3.12-slim-bookworm as uv-source
-
 FROM ghcr.io/osgeo/gdal:ubuntu-full-3.11.3@sha256:984938ae4ffda015d5e806a8048eb29fc4eeddaf97ada04e627f7f27b51feddb
 
 ARG GIT_VERSION
