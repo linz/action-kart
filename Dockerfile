@@ -8,6 +8,8 @@ ENV GIT_HASH=${GIT_HASH}
 
 ARG KART_VERSION=0.16.1
 
+RUN apt-get update && apt-get install git -y
+
 RUN wget https://github.com/koordinates/kart/releases/download/v${KART_VERSION}/Kart-${KART_VERSION}-linux-x86_64.tar.gz  && \
   tar xvf Kart-${KART_VERSION}-linux-x86_64.tar.gz  && \
   mv Kart-${KART_VERSION}-linux-x86_64/kart /opt/kart && \
