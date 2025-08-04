@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/linz/action-kart/compare/v0.1.1...v0.1.2) (2025-08-04)
+
+
+### Bug Fixes
+
+* add uv ([e81f063](https://github.com/linz/action-kart/commit/e81f0632cf159f5ded92fa59d2e3d687fb1d4ecd))
+
 ## [0.1.1](https://github.com/linz/action-kart/compare/v0.1.0...v0.1.1) (2025-08-04)
 
 
