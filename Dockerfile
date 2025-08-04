@@ -1,3 +1,5 @@
+FROM python:3.12-slim-bookworm as uv-source
+
 FROM ghcr.io/osgeo/gdal:ubuntu-full-3.11.3@sha256:984938ae4ffda015d5e806a8048eb29fc4eeddaf97ada04e627f7f27b51feddb
 
 ARG GIT_VERSION
@@ -19,3 +21,7 @@ ENV PATH="/opt/kart:${PATH}"
 
 RUN kart --version
 RUN gdal --version
+
+COPY --from=ghcr.io/astral-sh/uv:0.8.4 /uv /uvx /bin/
+
+RUN uv --version
