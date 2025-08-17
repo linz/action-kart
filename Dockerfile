@@ -18,9 +18,10 @@ RUN wget https://github.com/koordinates/kart/releases/download/v${KART_VERSION}/
 
 ENV PATH="/opt/kart:${PATH}"
 
-RUN kart --version
-RUN gdal --version
-
 COPY --from=ghcr.io/astral-sh/uv:${UV_VERSION} /uv /uvx /bin/
 
+RUN kart --version
+RUN gdal --version
+RUN jq --version
+RUN git --version
 RUN uv --version
