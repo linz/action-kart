@@ -9,7 +9,7 @@ ENV GIT_HASH=${GIT_HASH}
 ARG KART_VERSION=0.16.1
 ARG UV_VERSION=0.8.4
 
-RUN apt-get update && apt-get install git -y
+RUN apt-get update && apt-get install git jq -y
 
 RUN wget https://github.com/koordinates/kart/releases/download/v${KART_VERSION}/Kart-${KART_VERSION}-linux-x86_64.tar.gz  && \
   tar xvf Kart-${KART_VERSION}-linux-x86_64.tar.gz  && \
