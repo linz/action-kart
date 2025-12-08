@@ -1,3 +1,6 @@
+ARG UV_VERSION=0.9.16
+FROM ghcr.io/astral-sh/uv:${UV_VERSION} AS uv_source
+
 FROM ghcr.io/osgeo/gdal:ubuntu-full-3.12.0
 
 ARG GIT_VERSION
@@ -7,9 +10,8 @@ ARG GIT_HASH=unknown
 ENV GIT_HASH=${GIT_HASH}
 
 ARG KART_VERSION=0.17.0
-ARG UV_VERSION=0.9.16
 
-COPY --from=ghcr.io/astral-sh/uv:${UV_VERSION} /uv /uvx /bin/
+COPY --from=uv_source /uv /uvx /bin/
 
 RUN apt-get update && apt-get install -y jq software-properties-common wget
 
