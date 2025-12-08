@@ -1,4 +1,4 @@
-FROM ghcr.io/osgeo/gdal:ubuntu-full-3.11.3@sha256:984938ae4ffda015d5e806a8048eb29fc4eeddaf97ada04e627f7f27b51feddb
+FROM ghcr.io/osgeo/gdal:ubuntu-full-3.12.0
 
 ARG GIT_VERSION
 ENV GIT_VERSION=${GIT_VERSION}
@@ -6,10 +6,15 @@ ENV GIT_VERSION=${GIT_VERSION}
 ARG GIT_HASH=unknown
 ENV GIT_HASH=${GIT_HASH}
 
-ARG KART_VERSION=0.16.1
-ARG UV_VERSION=0.8.4
+ARG KART_VERSION=0.17.0
+ARG UV_VERSION=0.9.16
 
-RUN apt-get update && apt-get install git jq -y
+COPY --from=ghcr.io/astral-sh/uv:${UV_VERSION} /uv /uvx /bin/
+
+RUN apt-get update && apt-get install -y jq software-properties-common wget
+
+# Get the latest GIT
+RUN add-apt-repository ppa:git-core/ppa -y && apt update && apt install git -y
 
 RUN wget https://github.com/koordinates/kart/releases/download/v${KART_VERSION}/Kart-${KART_VERSION}-linux-x86_64.tar.gz  && \
   tar xvf Kart-${KART_VERSION}-linux-x86_64.tar.gz  && \
@@ -17,8 +22,6 @@ RUN wget https://github.com/koordinates/kart/releases/download/v${KART_VERSION}/
   rm -fr Kart-${KART_VERSION}-linux-x86_64/ Kart-${KART_VERSION}-linux-x86_64.tar.gz
 
 ENV PATH="/opt/kart:${PATH}"
-
-COPY --from=ghcr.io/astral-sh/uv:${UV_VERSION} /uv /uvx /bin/
 
 RUN kart --version
 RUN gdal --version
