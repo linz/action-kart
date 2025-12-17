@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.2.0](https://github.com/linz/action-kart/compare/v0.1.2...v0.2.0) (2025-12-17)
+
+
+### Features
+
+* add jq ([1c10f79](https://github.com/linz/action-kart/commit/1c10f7985c7ec56cced978803e7abb2af7633024))
+* add node24 ([2f44721](https://github.com/linz/action-kart/commit/2f447216d5760e3f318d4eaf12a54ba69a3fe6ba))
+
+
+### Bug Fixes
+
+* no longer need the extra from ([8eee7f4](https://github.com/linz/action-kart/commit/8eee7f472bb7323ba1228f8b2e61ce0dd5a022d0))
+
 ## [0.1.2](https://github.com/linz/action-kart/compare/v0.1.1...v0.1.2) (2025-08-04)
 
 
