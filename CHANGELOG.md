@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/linz/action-kart/compare/v0.2.0...v0.2.1) (2025-12-17)
+
+
+### Bug Fixes
+
+* kart branch builds ([#6](https://github.com/linz/action-kart/issues/6)) ([2835e7d](https://github.com/linz/action-kart/commit/2835e7dd68dfec964d8ea85895fcfaacdfaff10e))
+
 ## [0.2.0](https://github.com/linz/action-kart/compare/v0.1.2...v0.2.0) (2025-12-17)
 
 
