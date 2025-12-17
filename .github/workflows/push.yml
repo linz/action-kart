@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with: 
+        with:
           fetch-depth: 0
 
       - name: Setup GIT version
@@ -37,7 +37,8 @@ jobs:
   deploy-container:
     runs-on: ubuntu-latest
     concurrency: deploy-dev-${{ github.ref }}
-    needs: ["build"]
+    needs:
+      ["build"]
       # On push to master when it is not a release!
     if: ${{ github.ref == 'refs/heads/master' && !startsWith(github.event.head_commit.message, 'release:') }}
 
@@ -51,7 +52,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with: 
+        with:
           fetch-depth: 0
 
       - name: Setup GIT version
