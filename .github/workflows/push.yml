@@ -5,8 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with: 
+        with:
           fetch-depth: 0
+
+      - name: Setup GIT version
+        id: version
+        run: |
+          GIT_VERSION=$(git describe --tags --always --match 'v*')
+          GIT_VERSION_MAJOR=$(echo "$GIT_VERSION" | cut -d. -f1)
+          GIT_VERSION_MAJOR_MINOR=$(echo "$GIT_VERSION" | cut -d. -f1,2)
+
+          { echo "version=${GIT_VERSION}"; echo "version_major=${GIT_VERSION_MAJOR}"; echo "version_major_minor=${GIT_VERSION_MAJOR_MINOR}"; } >> "$GITHUB_OUTPUT"
 
       # Only build containers on branches otherwise container builds are duplicated deploy-nonprod-containers
       - name: Set up Docker Buildx
@@ -22,12 +31,14 @@ jobs:
           push: false
           build-args: |
             GIT_HASH=${{ github.sha }}
+            GIT_VERSION=${{ steps.version.outputs.version }} 
             GITHUB_RUN_ID=${{ github.run_id}}
 
   deploy-container:
     runs-on: ubuntu-latest
     concurrency: deploy-dev-${{ github.ref }}
-    needs: ["build"]
+    needs:
+      ["build"]
       # On push to master when it is not a release!
     if: ${{ github.ref == 'refs/heads/master' && !startsWith(github.event.head_commit.message, 'release:') }}
 
@@ -41,7 +52,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with: 
+        with:
           fetch-depth: 0
 
       - name: Setup GIT version
