@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/linz/action-kart/compare/v0.2.1...v0.3.0) (2026-03-01)
+
+
+### Features
+
+* bump gdal version to 3.12.2 ([#14](https://github.com/linz/action-kart/issues/14)) ([497dbfe](https://github.com/linz/action-kart/commit/497dbfe11bb0918d3f9eba35db31ee7ed73fdf77))
+
 ## [0.2.1](https://github.com/linz/action-kart/compare/v0.2.0...v0.2.1) (2026-01-28)
 
 
