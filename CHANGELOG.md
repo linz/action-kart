@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/linz/action-kart/compare/v0.3.0...v0.4.0) (2026-03-10)
+
+
+### Features
+
+* use gdal 3.13.0dev BM-1567 ([#16](https://github.com/linz/action-kart/issues/16)) ([912118f](https://github.com/linz/action-kart/commit/912118ff680def0295a248dae86aa1240f5595e2))
+
 ## [0.3.0](https://github.com/linz/action-kart/compare/v0.2.1...v0.3.0) (2026-03-01)
 
 
