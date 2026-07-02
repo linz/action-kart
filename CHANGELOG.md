@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/linz/action-kart/compare/v0.4.0...v0.5.0) (2026-07-02)
+
+
+### Features
+
+* provide new v17.1 features ([#21](https://github.com/linz/action-kart/issues/21)) ([ad1b9a6](https://github.com/linz/action-kart/commit/ad1b9a6058f5555dbc03e944764350dccc587879))
+
 ## [0.4.0](https://github.com/linz/action-kart/compare/v0.3.0...v0.4.0) (2026-03-10)
 
 
