@@ -10,8 +10,8 @@ ARG GIT_HASH=unknown
 ENV GIT_HASH=${GIT_HASH}
 
 ARG KART_VERSION=0.17.1
-# Disable kart helper until https://github.com/koordinates/kart/issues/1085 is resolved
-ENV KART_USE_HELPER=0
+
+ENV KART_ALLOW_FROM_GIT=1
 
 COPY --from=uv_source /uv /uvx /bin/
 
