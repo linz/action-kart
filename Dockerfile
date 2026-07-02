@@ -9,7 +9,7 @@ ENV GIT_VERSION=${GIT_VERSION}
 ARG GIT_HASH=unknown
 ENV GIT_HASH=${GIT_HASH}
 
-ARG KART_VERSION=0.17.0
+ARG KART_VERSION=0.17.1
 # Disable kart helper until https://github.com/koordinates/kart/issues/1085 is resolved
 ENV KART_USE_HELPER=0
 
