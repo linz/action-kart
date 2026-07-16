@@ -1,7 +1,7 @@
 ARG UV_VERSION=0.9.16
 FROM ghcr.io/astral-sh/uv:${UV_VERSION} AS uv_source
 
-FROM ghcr.io/osgeo/gdal:ubuntu-full-latest@sha256:ec307f0371879ab07ec517a8bd28457522c13ed8ef7b7e78e47d2ea82e2ea563
+FROM ghcr.io/osgeo/gdal:ubuntu-full-3.13.1@sha256:aff1d5515aa0e9b50be34ab11d6c0c2cfabc23cdcb7a2e0bc5748101eedb3e4a
 
 ARG GIT_VERSION
 ENV GIT_VERSION=${GIT_VERSION}
