@@ -16,7 +16,7 @@ jobs:
         id: release
         with:
           release-type: simple
-          token: ${{ secrets.LI_GITHUB_ACTION_TOKEN }}
+          token: ${{ secrets.LINZ_GITHUB_AUTOMATION }}
           pull-request-title-pattern: "release: ${version}"
 
   publish-release:
