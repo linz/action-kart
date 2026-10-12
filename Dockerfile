@@ -1,4 +1,4 @@
-ARG UV_VERSION=0.9.16
+ARG UV_VERSION=0.13.0
 FROM ghcr.io/astral-sh/uv:${UV_VERSION} AS uv_source
 
 FROM ghcr.io/osgeo/gdal:ubuntu-full-3.13.1@sha256:aff1d5515aa0e9b50be34ab11d6c0c2cfabc23cdcb7a2e0bc5748101eedb3e4a
@@ -21,12 +21,21 @@ RUN apt-get update && apt-get install -y jq software-properties-common wget
 RUN add-apt-repository ppa:git-core/ppa -y && apt update && apt install git -y
 
 # Install Node.js 24
-RUN wget -qO- https://deb.nodesource.com/setup_24.x | bash - && apt-get install -y nodejs
+RUN wget -qO- https://deb.nodesource.com/setup_26.x | bash - && apt-get install -y nodejs
 
-RUN wget https://github.com/koordinates/kart/releases/download/v${KART_VERSION}/Kart-${KART_VERSION}-linux-x86_64.tar.gz  && \
-  tar xvf Kart-${KART_VERSION}-linux-x86_64.tar.gz && \
-  mv Kart-${KART_VERSION}-linux-x86_64/kart /opt/kart && \
-  rm -fr Kart-${KART_VERSION}-linux-x86_64/ Kart-${KART_VERSION}-linux-x86_64.tar.gz
+# Install Kart from local CI bundle if present, otherwise download release
+COPY version.txt dist* /tmp/dist/
+RUN if ls /tmp/dist/Kart-*.tar.gz 1> /dev/null 2>&1; then \
+      echo "Installing Kart from dist bundle..." && \
+      tar -xz -C /opt --strip-components=1 -f /tmp/dist/Kart-*.tar.gz; \
+    else \
+      echo "dist bundle not found, downloading Kart release v${KART_VERSION}..." && \
+      wget https://github.com/koordinates/kart/releases/download/v${KART_VERSION}/Kart-${KART_VERSION}-linux-x86_64.tar.gz && \
+      tar xvf Kart-${KART_VERSION}-linux-x86_64.tar.gz && \
+      mv Kart-${KART_VERSION}-linux-x86_64/kart /opt/kart && \
+      rm -fr Kart-${KART_VERSION}-linux-x86_64/ Kart-${KART_VERSION}-linux-x86_64.tar.gz; \
+    fi && \
+    rm -rf /tmp/dist
 
 ENV PATH="/opt/kart:${PATH}"
 
