@@ -22,7 +22,7 @@ jobs:
         if: ${{ github.ref != 'refs/heads/master' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          KART_RUN_ID: "37717850007"
+          KART_RUN_ID: "38307974521"
         run: |
           gh run download "${KART_RUN_ID}" \
             --repo koordinates/kart \
@@ -78,7 +78,7 @@ jobs:
       - name: Download Kart bundle
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          KART_RUN_ID: "37717850007"
+          KART_RUN_ID: "38307974521"
         run: |
           gh run download "${KART_RUN_ID}" \
             --repo koordinates/kart \
