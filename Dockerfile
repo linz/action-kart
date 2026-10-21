@@ -1,4 +1,4 @@
-ARG UV_VERSION=0.13.0
+ARG UV_VERSION=0.13.4
 FROM ghcr.io/astral-sh/uv:${UV_VERSION} AS uv_source
 
 FROM ghcr.io/osgeo/gdal:ubuntu-full-3.13.1@sha256:aff1d5515aa0e9b50be34ab11d6c0c2cfabc23cdcb7a2e0bc5748101eedb3e4a
