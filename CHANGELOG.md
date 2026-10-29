@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.0](https://github.com/linz/action-kart/compare/v0.5.1...v0.6.0) (2026-10-29)
+
+
+### Features
+
+* kart with geoparquet support ([#26](https://github.com/linz/action-kart/issues/26)) ([b8c236e](https://github.com/linz/action-kart/commit/b8c236ea63f76514ba192a1afd1a92bc86199f36))
+* support path strucutre args ([#28](https://github.com/linz/action-kart/issues/28)) ([8c71777](https://github.com/linz/action-kart/commit/8c71777414e6b21b2e6bd25b0d2b9cf6f2ff2277))
+
 ## [0.5.1](https://github.com/linz/action-kart/compare/v0.5.0...v0.5.1) (2026-07-16)
 
 
